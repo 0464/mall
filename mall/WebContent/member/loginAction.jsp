@@ -17,7 +17,6 @@
 	MemberDao memberDao = new MemberDao();
 	paramMember.setMemberEmail(memberEmail);
 	paramMember.setMemberPw(memberPw);
-	paramMember.setMemberName(memberName);
 	
 	String loginMemberEmail = memberDao.login(paramMember);
 	if(loginMemberEmail == null) {

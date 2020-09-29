@@ -6,7 +6,7 @@ import vo.Category;
 import java.sql.*;
 
 public class CategoryDao {
-	// Category 목록
+	
 	public ArrayList<Category> selectCategoryList() throws Exception {
 		ArrayList<Category> list = new ArrayList<Category>();
 		DBUtil dbUtil = new DBUtil();
@@ -24,7 +24,7 @@ public class CategoryDao {
 		conn.close();
 		return list;
 	}
-	// 추천 Category 목록
+	
 		public ArrayList<Category> selectCategoryCkList() throws Exception {
 			ArrayList<Category> list = new ArrayList<Category>();
 			DBUtil dbUtil = new DBUtil();

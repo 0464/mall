@@ -15,10 +15,12 @@
 </head>
 <body>
 <%
+	// productId 불러오기
 	int productId = Integer.parseInt(request.getParameter("productId"));
 	ProductDao productDao = new ProductDao();
 	Product product = productDao.selectProductOne(productId);
 %>
+<!-- 상세보기 -->
 <div class="container">
 	<h1>상품 상세보기</h1>
 	<form method="post" action="<%=request.getContextPath()%>/orders/addOrdersAction.jsp">
@@ -39,7 +41,7 @@
 	<div>
 		배송주소 : <input type="text" name="ordersAddr">
 	</div>
-	<div><button type="submit">주문</button></div>
+	<div><button class="btn btn-outline-dark" type="submit">주문</button></div>
 	</form>
 	<table class="table table-hovor table-bordered">
 		<tr>

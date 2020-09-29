@@ -1,5 +1,5 @@
 package vo;
-// mall.orders의 table 테이터 타입
+
 public class Orders {
 	private int ordersId;
 	private int productId;

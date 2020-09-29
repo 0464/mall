@@ -17,6 +17,7 @@
 </head>
 
 <%
+	request.setCharacterEncoding("UTF-8");
 	CategoryDao categoryDao = new CategoryDao();
 	// 전체 카테고리 이름 리스트
 	ArrayList<Category> categoryList1 = categoryDao.selectCategoryList();
@@ -28,20 +29,19 @@
 		<div>
 			<!-- 최상단 검색바 -->
 			<div class="row">
-				<div class="col" style="text-align:left;">Goodee Shop</div>
+				<div class="col" style="text-align:left;"><a href="/mall/index.jsp"><h3>Goodee Shop</h3></a></div>
 				<div class="col" style="text-align:center;">
-					<form class="btn">
-						<input type="text">
-						<button type="submit">검색</button>
-					</form>
+				<form class="btn">
+					<input type="text">
+					<button class="btn btn-outline-dark" type="submit">검색</button>
+				</form>
 				</div>
 				<div class="col" style="text-align:right;">
-					<i class='fas fa-user-alt' style='font-size: 30px'></i>
-					<i class='fas fa-shopping-cart' style='font-size: 30px'></i>
+					<a href="<%=request.getContextPath() %>/member/memberInfo.jsp?loginMemberEmail=<%=session.getAttribute("loginMemberEmail")%>"><i class='fas fa-user-alt' style='font-size: 30px'></i></a>
+					<a href="<%=request.getContextPath() %>/orders/myOrdersList.jsp?loginMemberEmail=<%=session.getAttribute("loginMemberEmail")%>"><i class='fas fa-shopping-cart' style='font-size: 30px'></i></a>
 				</div>
 			</div>
 		</div>
-
 		<div>
 			<!-- 로그인/회원가입 메뉴바 -->
 			<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -58,9 +58,9 @@
 				%>
 				<!-- 로그인 상태 -->
 				<ul class="navbar-nav">
-					<li class="nav-item"><div class="nav-link"><%=session.getAttribute("loginMemberEmail")%>님 반갑습니다.</div></li>
+					<li class="nav-item"><div class="nav-link"><%=session.getAttribute("loginMemberName")%>님 반갑습니다.</div></li>
 					<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath() %>/member/logoutAction.jsp">로그아웃</a></li>
-					<li class="nav-item"><a class="nav-link" href="">회원정보</a></li>
+					<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath() %>/member/memberInfo.jsp?loginMemberEmail=<%=session.getAttribute("loginMemberEmail")%>">회원정보</a></li>
 				</ul>
 			</nav>
 			<%
@@ -135,7 +135,7 @@
 				%>
 				<td style="text-align:center;">
 					<div class="card" style="width:350px;">
-						<img class="card-img-top" src="/mall-admin/image/<%=p.getProductPic() %>">
+						<img class="card-img-top" src="/mall/images/<%=p.getProductPic() %>">
 						<div class="card-body">
 							<h4 class="card-title">
 							<a href="<%=request.getContextPath() %>/product/productOne.jsp?productId=<%=p.getProductId() %>" ><%=p.getProductName() %></a>

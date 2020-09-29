@@ -38,5 +38,8 @@
 			%>
 		</tbody>
 	</table>
+	<form method="post" action="/mall/index.jsp">
+		<button class="btn btn-outline-dark" type="submit">돌아가기</button>
+	</form>
 </body>
 </html>
