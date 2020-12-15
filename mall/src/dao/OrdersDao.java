@@ -9,7 +9,7 @@ public class OrdersDao {
 	public void insertOrders(Orders orders) throws Exception {
 		DBUtil dbUtil = new DBUtil();
 		Connection conn = dbUtil.getConnection();
-		String sql = "insert into orders(product_id,orders_amount,orders_price,member_email,orders_addr,orders_state,orders_date) values(?,?,?,?,?,'�����Ϸ�',now())";
+		String sql = "insert into orders(product_id,orders_amount,orders_price,member_email,orders_addr,orders_state,orders_date) values(?,?,?,?,?,'배송준비중',now())";
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setInt(1, orders.getProductId());
 		stmt.setInt(2, orders.getOrdersAmount());

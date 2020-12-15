@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="dao.*" %>
 <%@ page import="vo.*" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>productOne</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -15,19 +15,19 @@
 </head>
 <body>
 <%
-	// productId ╨р╥╞©ю╠Б
+	// productId К╤┬К÷╛Л≤╓Й╦╟
 	int productId = Integer.parseInt(request.getParameter("productId"));
 	ProductDao productDao = new ProductDao();
 	Product product = productDao.selectProductOne(productId);
 %>
-<!-- ╩С╪╪╨╦╠Б -->
+<!-- Л┐│Л└╦КЁ╢Й╦╟ -->
 <div class="container">
-	<h1>╩Сг╟ ╩С╪╪╨╦╠Б</h1>
+	<h1>Л┐│М▓┬ Л┐│Л└╦КЁ╢Й╦╟</h1>
 	<form method="post" action="<%=request.getContextPath()%>/orders/addOrdersAction.jsp">
 		<input type="hidden" value="<%=product.getProductId() %>" name="productId">
 		<input type="hidden" value="<%=product.getProductPrice() %>" name="productPrice">
 		<div>
-		╪Ж╥╝ : 
+		Л┬≤К÷┴ : 
 		<select name="ordersAmount">
 		<%
 			for(int i=1; i<11; i++) {
@@ -36,12 +36,12 @@
 		<%
 			}
 		%>
-		</select>╟Ё
+		</select>Й╟°
 	</div>
 	<div>
-		╧Х╪шаж╪р : <input type="text" name="ordersAddr">
+		К╟╟Л├║Лё╪Л├▄ : <input type="text" name="ordersAddr">
 	</div>
-	<div><button class="btn btn-outline-dark" type="submit">аж╧╝</button></div>
+	<div><button class="btn btn-outline-dark" type="submit">Лё╪К╛╦</button></div>
 	</form>
 	<table class="table table-hovor table-bordered">
 		<tr>

@@ -1,18 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>login</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 	$(document).ready(function(){
 		$("#btn").click(function(){
 			if($("#memberEmail").val().length<1) { // form validation checking
-				alert("ÀÌ¸ŞÀÏ È®ÀÎ");
+				alert("ì´ë©”ì¼ í™•ì¸");
 				return;
 			} else if ($("#memberPw").val().length<1) {
-				alert("pw È®ÀÎ");
+				alert("pw í™•ì¸");
 				return;
 			}
 			$("#loginForm").submit();
@@ -34,7 +34,7 @@
 	}
 %>
 <div class="container">
-	<h1>·Î±×ÀÎ</h1>
+	<h1>ë¡œê·¸ì¸</h1>
 	<form method="post" action="<%=request.getContextPath()%>/member/loginAction.jsp" id="loginForm">
 		<table class="table table-bordered">
 			<tr>
@@ -46,7 +46,7 @@
 				<td><input type="password" name="memberPw" id="memberPw"></td>
 			</tr>
 		</table>
-		<button type="button" id="btn">·Î±×ÀÎ</button>
+		<button type="button" id="btn">ë¡œê·¸ì¸</button>
 	</form>
 </div>
 </body>
