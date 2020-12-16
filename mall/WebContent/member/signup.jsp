@@ -6,6 +6,7 @@
 <meta charset="EUC-KR">
 <title>signup</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script>
 	$(document).ready(function(){
 		$("#btn").click(function(){
@@ -27,22 +28,17 @@
 <body>
 	<div class="container">
 		<h1>회원가입</h1>
-		<form method="post" action="" id="signupForm">
-			<table class="table table-bordered">
-				<tr>
-					<td>member_email</td>
-					<td><input type="text" name="memberEmail" id="memberEmail"></td>
-				</tr>
-				<tr>
-					<td>member_pw</td>
-					<td><input type="password" name="memberPw" id="memberPw"></td>
-				</tr>
-				<tr>
-					<td>member_name</td>
-					<td><input type="text" name="memberName" id="memberName"></td>
-				</tr>
-			</table>
-			<button type="button" id="btn">회원가입</button>
+		<form method="post" action="<%=request.getContextPath()%>/member/signupAction.jsp" id="signupForm">
+			<div class="form-group">
+				<label>member_email</label>
+				<input class="form-control" type="text" name="memberEmail" id="memberEmail">
+				<label>member_pw</label>
+				<input class="form-control" type="password" name="memberPw" id="memberPw">
+				<label>member_name</label>
+				<input class="form-control" type="text" name="memberName" id="memberName">
+			</div>
+			<button class="btn btn-outline-dark" type="button" id="btn">회원가입</button>
+			<button class="btn btn-outline-dark" type="button" onclick="location.href='<%=request.getContextPath()%>/index.jsp'">메인으로</button>
 		</form>
 	</div>
 </body>

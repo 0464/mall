@@ -36,17 +36,15 @@
 <div class="container">
 	<h1>로그인</h1>
 	<form method="post" action="<%=request.getContextPath()%>/member/loginAction.jsp" id="loginForm">
-		<table class="table table-bordered">
-			<tr>
-				<td>member_email</td>
-				<td><input type="text" name="memberEmail" id="memberEmail"></td>
-			</tr>
-			<tr>
-				<td>member_pw</td>
-				<td><input type="password" name="memberPw" id="memberPw"></td>
-			</tr>
-		</table>
-		<button type="button" id="btn">로그인</button>
+		
+		<div class="form-group">
+			<label>member_email</label>
+			<input class="form-control" type="text" name="memberEmail" id="memberEmail">
+			<label>member_pw</label>
+			<input class="form-control" type="password" name="memberPw" id="memberPw">
+		</div>
+		<button class="btn btn-outline-dark" type="button" id="btn">로그인</button>
+		<button class="btn btn-outline-dark" type="button" onclick="location.href='<%=request.getContextPath()%>/index.jsp'">메인으로</button>
 	</form>
 </div>
 </body>

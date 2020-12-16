@@ -12,6 +12,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body class="container">
+	<h1>회원 정보</h1>
 	<table class="table table-bordered table-hover">
 		<thead>
 			<tr>

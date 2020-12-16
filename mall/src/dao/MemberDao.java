@@ -51,6 +51,7 @@ public class MemberDao {
 		stmt.setString(2, member.getMemberPw());
 		stmt.setString(3, member.getMemberName());
 		stmt.executeLargeUpdate();
+		System.out.println("회원가입 완료");
 		conn.close();
 	}
 	

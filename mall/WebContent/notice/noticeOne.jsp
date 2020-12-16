@@ -6,13 +6,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>notice</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
 <body class="container">
-	<table class="table table-bordered">
+	<h1>공지사항</h1>
+	<table class="table table-bordered table-hover">
 		<thead>
 			<tr>
 				<th>notice_title</th>

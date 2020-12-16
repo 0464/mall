@@ -12,6 +12,7 @@
 </head>
 
 <body class="container">
+	<h1>주문 목록</h1>
 	<table class="table table-bordered">
 		<thead>
 			<tr>
