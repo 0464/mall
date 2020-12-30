@@ -19,12 +19,15 @@
 	paramMember.setMemberName(memberName);
 	paramMember.setMemberPw(memberPw);
 	
-	String loginMemberEmail = memberDao.login(paramMember);
-	if(loginMemberEmail == null) {
-		System.out.println("loginMemberEmail == null");
+	Member loginMember = memberDao.login(paramMember);
+	System.out.println(loginMember.getMemberEmail());
+	System.out.println(loginMember.getMemberName());
+	if(loginMember == null) {
+		System.out.println("loginMember == null");
 		response.sendRedirect(request.getContextPath()+"/member/login.jsp");
 	} else {
-		session.setAttribute("loginMemberEmail", loginMemberEmail);
+		session.setAttribute("loginMemberEmail", loginMember.getMemberEmail());
+		session.setAttribute("loginMemberName", loginMember.getMemberName());
 		response.sendRedirect(request.getContextPath()+"/index.jsp");
 	}
 %>

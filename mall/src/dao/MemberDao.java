@@ -26,20 +26,21 @@ public class MemberDao {
 		conn.close();
 		return list;
 	}
-	public String login(Member paramMember) throws Exception {
-		String memberEmail = null;
+	public Member login(Member paramMember) throws Exception {
+		Member member = new Member();
 		DBUtil dbUtil = new DBUtil();
 		Connection conn = dbUtil.getConnection();
-		String sql = "select member_email from member where member_email=? and member_pw=?";
+		String sql = "select member_email, member_name from member where member_email=? and member_pw=?";
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setString(1, paramMember.getMemberEmail());
 		stmt.setString(2, paramMember.getMemberPw());
 		ResultSet rs = stmt.executeQuery();
 		if(rs.next()) { // 로그인 성공
-			memberEmail = rs.getString("member_email");
+			member.setMemberEmail(rs.getString("member_email"));
+			member.setMemberName(rs.getString("member_name"));
 		}
 		conn.close();
-		return memberEmail;
+		return member;
 	}
 	
 	public void insertMember(Member member) throws Exception {

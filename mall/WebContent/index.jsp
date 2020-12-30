@@ -44,7 +44,7 @@
 				<!-- 로그인 상태 -->
 				<a class="navbar-brand" href="<%=request.getContextPath() %>/index.jsp">Goodee Shop</a>
 				<ul class="navbar-nav">
-					<li class="nav-item"><a class="nav-link disabled"><%=session.getAttribute("loginMemberEmail")%>님 반갑습니다.</a></li>
+					<li class="nav-item"><a class="nav-link disabled"><%=session.getAttribute("loginMemberName")%>님 반갑습니다.</a></li>
 					<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath() %>/member/memberInfo.jsp?loginMemberEmail=<%=session.getAttribute("loginMemberEmail")%>"><i class='fas fa-user-alt' style='font-size:22px'></i></a></li>
 					<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath() %>/orders/myOrdersList.jsp?loginMemberEmail=<%=session.getAttribute("loginMemberEmail")%>"><i class='fas fa-shopping-cart' style='font-size:22px'></i></a></li>
 					<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath() %>/member/logoutAction.jsp">로그아웃</a></li>
@@ -91,9 +91,8 @@
 			<%
 				for (Category c : categoryList2) {
 			%>
-			<a href="" style="text-align:center; vertical-align:middle"> <img
-				src="<%=request.getContextPath()%>/images/<%=c.getCategoryPic()%>"
-				class="rounded-circle" width="250" height="250">
+			<a href="" style="text-align:center; vertical-align:middle">
+			<img src="<%=request.getContextPath()%>/images/<%=c.getCategoryPic()%>" class="rounded-circle" width="250" height="250">
 			</a>
 			<%
 				}

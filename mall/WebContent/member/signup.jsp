@@ -26,14 +26,18 @@
 </script>
 </head>
 <body>
-	<div class="container">
-		<h1>회원가입</h1>
+	<div class="container"><br>
+		<h1>회원가입</h1><hr>
 		<form method="post" action="<%=request.getContextPath()%>/member/signupAction.jsp" id="signupForm">
 			<div class="form-group">
 				<label>member_email</label>
 				<input class="form-control" type="text" name="memberEmail" id="memberEmail">
+			</div>
+			<div class="form-group">
 				<label>member_pw</label>
 				<input class="form-control" type="password" name="memberPw" id="memberPw">
+			</div>
+			<div class="form-group">
 				<label>member_name</label>
 				<input class="form-control" type="text" name="memberName" id="memberName">
 			</div>

@@ -11,9 +11,9 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
-<body class="container">
-	<h1>주문 목록</h1>
-	<table class="table table-bordered">
+<body class="container"><br>
+	<h1>주문 목록</h1><hr>
+	<table class="table table-bordered table-hover">
 		<thead>
 			<tr>
 				<th>orders_id</th>

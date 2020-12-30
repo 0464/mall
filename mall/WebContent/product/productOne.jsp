@@ -21,36 +21,16 @@
 	Product product = productDao.selectProductOne(productId);
 %>
 <!-- 상세보기 -->
-<div class="container">
-	<h1>상품 상세보기</h1>
-	<form method="post" action="<%=request.getContextPath()%>/orders/addOrdersAction.jsp">
-		<input type="hidden" value="<%=product.getProductId() %>" name="productId">
-		<input type="hidden" value="<%=product.getProductPrice() %>" name="productPrice">
-		<div>
-		수량 : 
-		<select name="ordersAmount">
-		<%
-			for(int i=1; i<11; i++) {
-		%>
-			<option value="<%=i%>"><%=i%></option>
-		<%
-			}
-		%>
-		</select>개
-	</div>
-	<div>
-		배송주소 : <input type="text" name="ordersAddr">
-	</div>
-	<div><button class="btn btn-outline-dark" type="submit">주문</button></div>
-	</form>
+<div class="container"><br>
+	<h1>상품 상세보기</h1><hr>
 	<table class="table table-hovor table-bordered">
 		<tr>
-			<td>product_id</td>
+			<td style="width:250px">product_id</td>
 			<td><%=product.getProductId() %></td>
 		</tr>
 		<tr>
 			<td>product_pic</td>
-			<td><img src="/mall-admin/image/<%=product.getProductPic() %>"></td>
+			<td><img src="/mall/images/<%=product.getProductPic() %>"></td>
 		</tr>
 		<tr>
 			<td>product_name</td>
@@ -68,7 +48,31 @@
 			<td>product_soldout</td>
 			<td><%=product.getProductSoldout() %></td>
 		</tr>
-	</table>
+	</table><hr>
+	<form method="post" action="<%=request.getContextPath()%>/orders/addOrdersAction.jsp">
+		<div class="form-group">
+			<input type="hidden" value="<%=product.getProductId() %>" name="productId">
+			<input type="hidden" value="<%=product.getProductPrice() %>" name="productPrice">
+			<label>수량 : </label>
+			<select class="form-control" name="ordersAmount">
+			<%
+				for(int i=1; i<11; i++) {
+			%>
+				<option value="<%=i%>"><%=i%></option>
+			<%
+				}
+			%>
+			</select>
+		</div>
+		<div class="form-froup">
+			<label>배송주소 : </label>
+			<input class="form-control" type="text" name="ordersAddr">
+		</div><br>
+		<div class="form-group">
+			<button class="btn btn-outline-dark" type="submit">주문</button>
+			<button class="btn btn-outline-dark" type="button" onclick="location.href='<%=request.getContextPath()%>/index.jsp'">메인으로</button>
+		</div>
+	</form>
 </div>
 </body>
 </html>
