@@ -20,8 +20,6 @@
 	paramMember.setMemberPw(memberPw);
 	
 	Member loginMember = memberDao.login(paramMember);
-	System.out.println(loginMember.getMemberEmail());
-	System.out.println(loginMember.getMemberName());
 	if(loginMember == null) {
 		System.out.println("loginMember == null");
 		response.sendRedirect(request.getContextPath()+"/member/login.jsp");

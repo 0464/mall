@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="dao.*"%>
 <%@ page import="vo.*"%>
 <%@ page import="java.util.*"%>
@@ -104,13 +103,7 @@
 		%>
 		<!-- 상품 목록 -->
 		<div style="text-align:center">
-			<%
-				for (Category c : categoryList1) {
-			%>
-			<a href="" class="btn btn-outline-dark"><%=c.getCategoryName()%></a>
-			<%
-				}
-			%>
+			<a href="<%=request.getContextPath() %>/product/productList.jsp?categoryName=all" class="btn btn-outline-dark">전체 카테고리</a>
 		</div><br>
 		<div>
 		<table>
