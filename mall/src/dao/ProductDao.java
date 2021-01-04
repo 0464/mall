@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+
 import commons.DBUtil;
 import vo.Product;
 
@@ -56,11 +58,13 @@ public class ProductDao {
 		String sql = "";
 		PreparedStatement stmt = null;
 		if (categoryName == "all") {
+			System.out.println("category : "+categoryName);
 			sql = "SELECT product.product_id, product.category_id, category.category_name, product.product_name, product.product_price, product.product_soldout "
-					+ "FROM product INNER JOIN category ON product.category_id=category.category_id WHERE category.category_name";
+					+ "FROM product INNER JOIN category ON product.category_id=category.category_id";
 			stmt = conn.prepareStatement(sql);
 		}
 		else {
+			System.out.println("category : "+categoryName);
 			sql = "SELECT product.product_id, product.category_id, category.category_name, product.product_name, product.product_price, product.product_soldout "
 				+ "FROM product INNER JOIN category ON product.category_id=category.category_id WHERE category.category_name LIKE ?";
 			stmt = conn.prepareStatement(sql);

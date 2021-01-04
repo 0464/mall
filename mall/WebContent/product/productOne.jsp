@@ -19,6 +19,14 @@
 	int productId = Integer.parseInt(request.getParameter("productId"));
 	ProductDao productDao = new ProductDao();
 	Product product = productDao.selectProductOne(productId);
+	String soldout = "판매중";
+	if (product.getProductSoldout().equals("Y")) {
+		soldout = "품절";
+	}
+	String hidden = "";
+	if (soldout.equals("품절")) {
+		hidden = "hidden";
+	}
 %>
 <!-- 상세보기 -->
 <div class="container"><br>
@@ -46,10 +54,10 @@
 		</tr>
 		<tr>
 			<td>product_soldout</td>
-			<td><%=product.getProductSoldout() %></td>
+			<td><%=soldout %></td>
 		</tr>
 	</table><hr>
-	<form method="post" action="<%=request.getContextPath()%>/orders/addOrdersAction.jsp">
+	<form <%=hidden %> method="post" action="<%=request.getContextPath()%>/orders/addOrdersAction.jsp">
 		<div class="form-group">
 			<input type="hidden" value="<%=product.getProductId() %>" name="productId">
 			<input type="hidden" value="<%=product.getProductPrice() %>" name="productPrice">
@@ -70,9 +78,10 @@
 		</div><br>
 		<div class="form-group">
 			<button class="btn btn-outline-dark" type="submit">주문</button>
-			<button class="btn btn-outline-dark" type="button" onclick="location.href='<%=request.getContextPath()%>/index.jsp'">메인으로</button>
 		</div>
 	</form>
+	<button class="btn btn-outline-dark" type="button" onclick="location.href='<%=request.getContextPath()%>/product/productList.jsp?categoryName=all'">목록으로</button>
+	<button class="btn btn-outline-dark" type="button" onclick="location.href='<%=request.getContextPath()%>/index.jsp'">메인으로</button>
 </div>
 </body>
 </html>
